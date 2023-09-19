@@ -31,8 +31,8 @@ export default function Home() {
                 <form className="flex gap-2 h-14 mb-5" onSubmit={handleSubmit}>
                     <input
                         type="text"
-                        className="flex-1 ring-1 ring-black rounded-md pl-5"
-                        placeholder="add new task..."
+                        className="flex-1 ring-1 ring-black rounded-md px-3"
+                        placeholder="create new task..."
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                     />
@@ -51,12 +51,12 @@ export default function Home() {
                             <h1
                                 className={`${
                                     el.status && "line-through"
-                                } text-xl flex-1`}
+                                } text-xl flex-1 break-all`}
                             >
                                 {el.task}
                             </h1>
                             <button
-                                className="rounded-md px-3 py-1 bg-red-500 text-white"
+                                className="rounded-md px-3 py-1 bg-red-500 text-white self-center"
                                 onClick={() => handleDelete(index)}
                             >
                                 delete
