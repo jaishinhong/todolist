@@ -7,7 +7,8 @@ export default function Home() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (input) {
+
+        if (input.trim()) {
             const newTask = { task: input, status: false };
             setTasks([newTask, ...tasks]);
         }
@@ -20,8 +21,8 @@ export default function Home() {
         setTasks(newTasks);
     };
 
-    const handleDelete = (i) => {
-        const newTasks = tasks.filter((_, index) => index !== i);
+    const handleDelete = (index) => {
+        const newTasks = tasks.filter((_, i) => i !== index);
         setTasks(newTasks);
     };
 
@@ -40,13 +41,14 @@ export default function Home() {
                         Add
                     </button>
                 </form>
-                <section className="flex flex-col gap-3">
+                <main className="flex flex-col gap-2">
                     {tasks.map((el, index) => (
                         <div className="flex gap-5" key={index}>
                             <input
                                 type="checkbox"
                                 checked={el.status}
                                 onChange={() => handleCheckbox(index)}
+                                className="w-4 h-4 self-center cursor-pointer"
                             />
                             <h1
                                 className={`${
@@ -63,7 +65,7 @@ export default function Home() {
                             </button>
                         </div>
                     ))}
-                </section>
+                </main>
             </div>
         </>
     );
